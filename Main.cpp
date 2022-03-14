@@ -8,8 +8,8 @@ int main(){
 
     int colls = 0;
     int rows = 0; 
-    char c1 = 0; 
-    char c2 = 0; 
+    string c1; 
+    string c2; 
     char ans = 0;
     bool is_running = true;
 
@@ -23,12 +23,20 @@ int main(){
 
         cout << "Type spirals design of the rug: ";
         cin >> c1; // Get user input for the rug spiral
+        if(c1.length() != 1){
+            cout << "invalid input: Insert only one charecter" << endl;
+            continue;
+        }
 
         cout << "Type background of the rug: ";
         cin >> c2; // Get user input for background
+        if(c2.length() != 1){
+            cout << "invalid input: Insert only one charecter" << endl;
+            continue;
+        }
 
         try {
-            string rug = mat(colls, rows, c1, c2);
+            string rug = mat(colls, rows, c1[0], c2[0]);
             cout << "Your rug design: " << endl << rug;
         } 
         catch (exception & ex) {

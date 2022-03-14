@@ -12,6 +12,7 @@ namespace ariel{
 
     string mat(int colls, int rows, char c1, char c2){
 
+        // Validate user input
         if(colls % 2 == 0 || rows % 2 == 0){
             throw invalid_argument("Mat size is always odd");
         }
@@ -27,15 +28,6 @@ namespace ariel{
         int total_rings = min_v/2 + 1;
 
         vector<vector<char>> matrix (rows, vector<char>(colls));
-        // if(matrix == NULL){
-        //     return NULL;
-        // }
-        // for (int i = 0; i < rows; i++){
-        //     matrix[i] = new char[colls];
-        //     if(matrix[i] == NULL){
-        //         return NULL;
-        //     }
-        // }
 
         for(int i = 0; i < total_rings; i++){
             c = c1;
@@ -52,15 +44,12 @@ namespace ariel{
             }
         }
         string s;
-        for(int i = 0; i < rows; i++){
+        for(int i = 0; i < rows; i++){ // Create from matrix the string
             for(int j = 0; j < colls; j++){
                 s += matrix[i][j];
             }
             s += "\n";
-            // delete [] matrix[i];
         }
-        // delete [] matrix;
-
         return s;
     }
 }
